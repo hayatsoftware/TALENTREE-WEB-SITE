@@ -1,0 +1,205 @@
+@import "function";
+.main{
+  @media (max-width:767px){
+    padding-top: 90px;
+  }
+}
+.section{
+  .container-fluid{
+    max-width: 1730px;
+  }
+}
+.pageContent{
+  .textContent{
+    ul{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin:0 $i;
+      padding: 0 $i;
+      @media (max-width:767px){
+        justify-content: flex-start;
+      }
+      li{
+        list-style-type: none;
+        font-size: 16px;
+        margin:0 1rem;
+        display: flex;
+        align-items: center;
+        @media (max-width:1024px){
+          margin:0 10px;
+        }
+        @media (max-width:767px){
+          margin:0;
+        }
+        &:before{
+          content:"\f00c" $i;
+          font-family: "Font Awesome 5 Pro";
+          font-weight: 500;
+          color: #5fb157;
+          font-size: 16px;
+          border:none $i;
+          border-radius: 0 $i;
+          background: transparent $i;
+          display: block $i;
+          top:0 $i;
+          width: auto $i;
+          height: auto $i;
+        }
+      }
+    }
+  }
+}
+.openAdsList{
+  .cols{
+    margin-bottom: 30px;
+  }
+  .item{
+    height: 100%;
+    background: #e3e6ed;
+    display: block;
+    text-decoration: none;
+    border-radius: 30px;
+    overflow: hidden;
+    color: #000;
+    text-align: center;
+    &:hover{
+      picture{
+        img{
+          transform: scale(1.12);
+        }
+      }
+    }
+    a{
+      transition: .3s;
+      text-decoration: none;
+      color:$black;
+      pointer-events: none;
+      opacity: .5;
+      &.active{
+        pointer-events: initial;
+        opacity: 1;
+      }
+    }
+    picture{
+      display: flex;
+      align-items: center;
+      height: 15vw;
+      max-height: 250px;
+      overflow: hidden;
+      @media (max-width:1024px){
+        height: 180px;
+      }
+      img{
+        transition: .3s;
+      }
+    }
+    .form-check{
+      font-size: 16px;
+      line-height: 24px;
+      text-align: left $i;
+      padding: 0 $i;
+      margin:0 $i;
+      cursor: pointer;
+      @media (max-width:1024px){
+        font-size: 14px;
+        line-height: 22px;
+      }
+      label{
+        cursor: pointer;
+      }
+      a{
+        pointer-events: initial;
+        opacity: 1;
+        text-decoration: underline $i;
+      }
+      input{
+        margin-right: 0.6rem;
+        position: relative;
+        width: 1.28vw;
+        height: 1.28vw;
+        min-width: 1.28vw;
+        border: 1px solid #BBC2D3;
+        outline: none;
+        -webkit-appearance: none;
+        background: $white;
+        top:3px;
+        cursor: pointer;
+        @media (max-width:1024px){
+          min-width: 22px;
+          width: 22px;
+          height: 22px;
+        }
+        &:before{
+          transition: .3s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          content: "\f00c";
+          font-family: "Font Awesome 5 Pro";
+          font-weight: 500;
+          color: $green;
+          font-size: 16px;
+          opacity: 0;
+        }
+        &:checked{
+          &:before{
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .text{
+      padding: 1.6vw;
+      @media (max-width:1023px){
+        padding: 20px;
+      }
+    }
+    h2,h3{
+      font-family: $semibold;
+      font-size: 1.55vw;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media (max-width:1024px){
+        font-size: 25px $i;
+      }
+      img{
+        max-width: 100%;
+      }
+      @media only screen and (min-width: 1024px) and (max-width: 1500px){
+        font-size: 1.75vw;
+      }
+      @media (min-width:2000px){
+        font-size: 29px;
+      }
+    }
+    i{
+      background: $green;
+      border-radius: 50%;
+      color:$white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      width: 4.44vw;
+      height: 4.44vw;
+      font-size: 1.87vw;
+      @media (min-width:2000px){
+        width: 83px;
+        height: 83px;
+        font-size: 35px;
+      }
+      @media (max-width:1023px){
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+      }
+    }
+  }
+}

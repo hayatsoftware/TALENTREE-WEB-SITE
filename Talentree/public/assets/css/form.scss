@@ -1,0 +1,603 @@
+@import "function";
+.formPage{
+  .row{
+    .col-md-6,.col-md-12{
+      margin-top:0;
+    }
+  }
+  .form-group{
+    position: relative;
+    margin-bottom: 1rem;
+    &.datepickerActive{
+      &:after{
+        content:"\f078";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 500;
+        color:$green;
+        position: absolute;
+        right: 1rem;
+        font-size: 17px;
+        top: 17px;
+      }
+    }
+    &.ok{
+      label{
+        top:-35px;
+      }
+    }
+    &.otherFormGroup{
+      span{
+        background: #FCFCFC;
+        border: 1px solid #E4E4E4;
+        border-radius: 30px;
+        height: 60px;
+        padding: 0 2rem;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color:$black $i;
+        text-decoration: none;
+        cursor: pointer;
+        width: 100%;
+        @media (max-width:1023px){
+          font-size: 14px;
+          line-height: 17px;
+        }
+        small{
+            font-size: 15px;
+            line-height: 15px;
+          @media (max-width:1023px){
+            font-size: 14px;
+            line-height: 17px;
+          }
+          &.active{
+            position: relative;
+            top: -7px;
+          }
+        }
+        i{
+          position: absolute;
+          bottom: 3px;
+          font-style: normal;
+          font-size: 13px;
+        }
+        &:after{
+          content:"\f078";
+          font-family: "Font Awesome 5 Pro";
+          font-weight: 500;
+          color:$green;
+          font-size: 17px;
+        }
+      }
+      .selectBox{
+        position: absolute;
+        z-index: 2;
+        opacity: 0;
+        width: 100%;
+        border: 1px solid #e4e4e4;
+        background: #fff;
+        border-radius: 30px;
+        top: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        .listing{
+          max-height: 225px;
+          overflow: auto;
+          padding: 1rem 0;
+          &::-webkit-scrollbar {
+            width: 8px;
+          }
+          &::-webkit-scrollbar-track {
+            background-color: #fcfcfc;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: $grey;
+          }
+        }
+        &.active{
+          opacity: 1;
+          pointer-events: initial;
+        }
+        .form-check{
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          cursor: pointer;
+          margin: 0 15px;
+          padding: 3px calc(2rem - 15px);
+          width: auto;
+          @media (max-width:1023px){
+            font-size: 14px;
+            line-height: 17px;
+          }
+          &:hover{
+            background: #f3f5f5;
+          }
+          &:before{
+            display: none;
+          }
+        }
+      }
+    }
+    label{
+      transition: .3s;
+      width: 100%;
+      font-size: 16px;
+      margin: 0;
+      position: absolute;
+      top: 17px;
+      padding: 0 2rem;
+      @media (max-width:1023px){
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+    .form-control{
+      background: #FCFCFC;
+      border: 1px solid #E4E4E4 $i;
+      border-radius: 30px;
+      height: 60px;
+      padding: 0 2rem;
+      font-size: 16px;
+      @media (max-width:1023px){
+        font-size: 14px;
+        line-height: 17px;
+        padding: 0 1.5rem 0 1rem;
+      }
+      &:disabled{
+        cursor: not-allowed;
+        &::placeholder{
+          opacity: .6;
+        }
+      }
+      &:focus{
+        box-shadow: initial;
+        outline: 4px solid #dce4f4;
+      }
+      &::placeholder{
+        color:$black;
+      }
+    }
+    textarea{
+      resize: none;
+      height: 180px $i;
+      padding: 1rem 2rem $i;
+      @media (max-width:1023px){
+        padding: 1.5rem 1rem $i;
+      }
+    }
+  }
+  .form-check{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    input{
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+      background-color: $white $i;
+      border-color:#e4e4e4 $i;
+      margin:0 8px 0 0;
+      &:checked{
+        background-color: $green $i;
+        background-size: 16px;
+      }
+    }
+    label{
+      color:$black $i;
+      cursor: pointer;
+      padding: 0;
+      position: initial;
+    }
+  }
+  .submit{
+    a,button{
+      border: none;
+      border-radius: 30px;
+      font-family: $semibold;
+      width: 40%;
+      height: 60px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      @media (max-width:1023px){
+        width: 75%;
+      }
+      &:before{
+        transition: .5s;
+        content: "";
+        background: $blue;
+        width: 0;
+        height: 100%;
+        position: absolute;
+        opacity: 0;
+        left:0;
+        border-radius: 30px;
+        top:0;
+      }
+      &:hover{
+        &:before{
+          opacity: 1;
+          width: 100%;
+        }
+      }
+      span{
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+  .noSearchList{
+    .chosen-search{
+      display: none;
+    }
+  }
+  .chosen-container{
+    &.chosen-with-drop{
+      .chosen-drop{
+        opacity: 1;
+        pointer-events: initial;
+      }
+      .chosen-single{
+        background: $white;
+        outline: 4px solid #dce4f4;
+      }
+    }
+  }
+  .chosen-single{
+    background: #FCFCFC;
+    border: 1px solid #E4E4E4;
+    border-radius: 30px;
+    height: 60px;
+    padding: 0 2rem;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:$black $i;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+    @media (max-width:1023px){
+      font-size: 14px;
+      line-height: 17px;
+      padding: 0 1.5rem 0 1rem;
+    }
+    &.invalid{
+      border-color:red;
+    }
+    &:after{
+      content:"\f078";
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 500;
+      color:$green;
+      font-size: 17px;
+      @media (max-width:767px){
+        font-size: 15px;
+      }
+    }
+  }
+  .chosen-container{
+    position: relative;
+  }
+  .chosen-drop{
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    width: 100%;
+    border: 1px solid #E4E4E4;
+    background: $white;
+    padding: 1rem 0;
+    border-radius: 30px;
+    top: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .chosen-search{
+    padding: 0 2rem;
+    background: $white;
+    margin-bottom: .5rem;
+    label{
+      display: none;
+    }
+    input{
+      width: 100%;
+      border:none;
+      outline: none;
+      border-bottom: 1px solid #DFDFDF;
+      padding: 10px 28px 10px 0;
+      color:$black;
+      font-size: 16px;
+      text-transform: uppercase;
+      background: url(../img/form-search-ico.svg) right center no-repeat;
+      @media (max-width:1023px){
+        font-size: 14px;
+        line-height: 17px;
+      }
+      &::placeholder{
+        color:$black;
+      }
+    }
+  }
+  .chosen-results{
+    margin: 0 $i;
+    width: 100%;
+    padding: 0;
+    max-height: 225px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #fcfcfc;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $grey;
+    }
+    li{
+      list-style-type: none $i;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 15px;
+      padding: 3px calc(2rem - 15px);
+      @media (max-width:1023px){
+        font-size: 14px;
+        line-height: 17px;
+      }
+      em{
+        font-style: normal;
+        text-decoration: underline ;
+      }
+      &:hover,&.result-selected{
+        background: #F3F5F5;
+      }
+      &.disabled-result{
+        pointer-events: none;
+        border-radius: 0;
+        background-color: transparent;
+        border-bottom: 1px dashed #e4e4e4;
+        padding: 0 0 8px 0;
+        margin: 0 30px 5px;
+      }
+      &.no-results{
+        text-transform: capitalize;
+        span{
+          text-transform: uppercase;
+        }
+      }
+      &:before{
+        display: none $i;
+      }
+    }
+  }
+  .multiSelectList{
+    display: flex;
+    align-items: flex-start;
+    .cols_1{
+      width: 70%;
+      .chosen-single{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-right: 1rem;
+      }
+    }
+    .cols_2{
+      width: 30%;
+      .chosen-single{
+        background: #F3F3F3;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        white-space: nowrap;
+        padding: 0 1rem;
+        font-size: 15px;
+        @media (max-width:1023px){
+          font-size: 13px;
+          padding: 0 10px;
+        }
+      }
+      .chosen-drop{
+        min-width: 180px;
+        right: 0;
+      }
+      .chosen-results li{
+        white-space: nowrap;
+      }
+    }
+  }
+  #skala_chosen,#skala1_chosen{
+    .result-selected{
+      background: transparent $i;
+    }
+  }
+  .form-control:valid,.form-control:invalid{
+    background-image: none $i;
+  }
+}
+.datepicker-dropdown {
+  border-radius: 10px $i;
+  padding: 15px $i;
+  z-index: 1 $i;
+  th{
+    font-size: 14px;
+    font-family: $semibold;
+    &.prev,&.next{
+      background: $green $i;
+      color:$white $i;
+    }
+  }
+  td{
+    font-family: $regular;
+    font-size: 14px;
+    &.active{
+      background: $blue $i;
+    }
+    span{
+      &.year,&.month{
+        font-family: $semibold;
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+}
+.invalid-feedback{
+  font-size: 14px;
+}
+.datepicker-dropdown.datepicker-orient-top:before{
+  border-top: 7px solid  rgba(0,0,0,.15) $i;
+}
+.iti{
+  width: 100%;
+}
+.iti--separate-dial-code .iti__selected-flag{
+  background: transparent $i;
+}
+.iti__selected-dial-code{
+  font-size: 16px;
+  @media (max-width:1023px){
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+.iti__selected-flag{
+  padding: 0 .5rem 0 2rem $i;
+}
+.otherForm{
+  margin-top:2vw $i;
+  &.hidden{
+    margin-top:0 $i;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
+
+  }
+}
+.fTitle{
+  font-family: $semibold;
+  font-size: 29px;
+  letter-spacing: -1px;
+  margin-bottom: 1.5vw;
+  span{
+    font-family: $regular;
+    display: block;
+    font-size:16px;
+    letter-spacing: 0;
+    margin-top: 1rem;
+    @media (max-width:1023px){
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+}
+.multipleSelect{
+  .search-field{
+    display: none;
+  }
+  .result-selected{
+    &:first-child{
+      display: none;
+    }
+  }
+}
+.chosen-choices{
+  padding: 0;
+  margin:0 $i;
+  li{
+    list-style-type: none;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    background: #FCFCFC;
+    border-radius: 15px;
+    padding: 4px 15px;
+    @media (max-width:1023px){
+      font-size: 14px;
+      line-height: 17px;
+    }
+    .search-choice-close{
+      width: 17px;
+      height: 17px;
+      background: $green;
+      margin-left: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: $white $i;
+      cursor: pointer;
+      border-radius: 50%;
+      &:after{
+        content: "x";
+        height: 100%;
+        line-height: 100%;
+        padding-top: 1px;
+      }
+    }
+    &:before{
+      display: none $i;
+    }
+    &.search-choice-disabled{
+      background: #FCFCFC;
+      border: 1px solid #E4E4E4;
+      border-radius: 30px;
+      height: 60px;
+      padding: 0 2rem;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color:$black $i;
+      text-decoration: none;
+      cursor: pointer;
+      width: 100%;
+      margin:0 $i;
+      @media (max-width:1023px){
+        font-size: 14px;
+        line-height: 17px;
+      }
+      &:after{
+        content:"\f078";
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 500;
+        color:$green;
+        font-size: 17px;
+      }
+    }
+  }
+}
+.iti__flag-container{
+    height: 60px;
+}
+.iti__divider{
+  margin:0 $i;
+  padding: 0 $i;
+  border-color:#e4e4e4 $i;
+}
+.iti__country.iti__highlight{
+  background: #fcfcfc $i;
+}
+.iti__country-list{
+  li{
+    font-size: 16px;
+    @media (max-width:1023px){
+      font-size: 14px;
+      line-height: 17px;
+    }
+    &:before{
+      display: none $i;
+    }
+  }
+}
+.noPosition{
+    position: initial $i;
+    padding: 0 $i;
+}
